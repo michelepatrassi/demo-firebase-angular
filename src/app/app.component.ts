@@ -1,11 +1,10 @@
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import 'firebase/firestore';
 import { auth, firestore } from 'firebase/app';
 import {switchMap} from 'rxjs/operators';
-import { of } from 'rxjs';
-
+import { of, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -29,27 +28,23 @@ import { of } from 'rxjs';
 })
 export class AppComponent {
   user$;
-
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
-    this.user$ = this.auth.user.pipe(
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+    this.user$ = this.afAuth.user.pipe(
       switchMap(user => {
-        if (user) {
-          return this.afs.doc(`users/${user.uid}`).valueChanges();
-        }
-        return of(null);
+        return user ? this.afs.doc(`users/${user.uid}`).valueChanges() : of(null);
       })
     );
   }
 
   login() {
-    this.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
   logout() {
-    this.auth.signOut();
+    this.afAuth.signOut();
   }
 
   async add(val: string) {
-    const uid = (await this.auth.currentUser).uid;
+    const uid = (await this.afAuth.currentUser).uid;
     await this.afs.doc(`users/${uid}`).update({
       items: firestore.FieldValue.arrayUnion(val)
     });
