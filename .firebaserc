@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularfire-6e048": {
+      "hosting": {
+        "demo-complete": [
+          "angularfire-6e048"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularfire-6e048"
+  }
+}

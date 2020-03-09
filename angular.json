@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "demo-complete": {
@@ -121,8 +121,16 @@
               "devServerTarget": "demo-complete:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "demo-complete"
+    }
+  },
+  "defaultProject": "demo-complete",
+  "cli": {
+    "analytics": "09878e1f-9adb-4318-bc13-5f200a864e3c"
+  }
 }
