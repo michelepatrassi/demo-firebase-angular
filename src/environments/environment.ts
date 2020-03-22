@@ -5,13 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyADfiU5vYa3o0dx-AquD536y8eAPLWqRTk',
-    authDomain: 'angularfire-6e048.firebaseapp.com',
-    databaseURL: 'https://angularfire-6e048.firebaseio.com',
-    projectId: 'angularfire-6e048',
-    storageBucket: 'angularfire-6e048.appspot.com',
-    messagingSenderId: '408279012771',
-    appId: '1:408279012771:web:8d4e0e37e4f1c380deb616'
+    // add your firebase configuration here!
   }
 };
 
