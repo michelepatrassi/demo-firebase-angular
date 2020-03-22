@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "demo-complete",
-      "public": "dist/demo-complete",
+      "target": "demo-firebase-angular",
+      "public": "dist/demo-firebase-angular",
       "ignore": [
         "firebase.json",
         "**/.*",

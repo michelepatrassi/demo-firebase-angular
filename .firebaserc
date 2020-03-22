@@ -2,7 +2,7 @@
   "targets": {
     "angularfire-6e048": {
       "hosting": {
-        "demo-complete": [
+        "demo-firebase-angular": [
           "angularfire-6e048"
         ]
       }

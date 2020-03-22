@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo-complete": {
+    "demo-firebase-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo-complete",
+            "outputPath": "dist/demo-firebase-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-complete:build"
+            "browserTarget": "demo-firebase-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo-complete:build:production"
+              "browserTarget": "demo-firebase-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-complete:build"
+            "browserTarget": "demo-firebase-angular:build"
           }
         },
         "test": {
@@ -114,11 +114,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demo-complete:serve"
+            "devServerTarget": "demo-firebase-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo-complete:serve:production"
+              "devServerTarget": "demo-firebase-angular:serve:production"
             }
           }
         },
@@ -129,7 +129,7 @@
       }
     }
   },
-  "defaultProject": "demo-complete",
+  "defaultProject": "demo-firebase-angular",
   "cli": {
     "analytics": "09878e1f-9adb-4318-bc13-5f200a864e3c"
   }

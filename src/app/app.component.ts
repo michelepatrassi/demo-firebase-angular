@@ -9,7 +9,7 @@ import { of, Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngIf="auth.user | async as user; else showLogin">
+    <div *ngIf="afAuth.user | async as user; else showLogin">
       <h1>Hello {{ user.displayName }}!</h1>
       <button (click)="logout()">Logout</button>
 
@@ -27,8 +27,8 @@ import { of, Observable } from 'rxjs';
   `,
 })
 export class AppComponent {
-  user$;
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  user$: Observable<{items: string[]}>;
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.user$ = this.afAuth.user.pipe(
       switchMap(user => {
         return user ? this.afs.doc(`users/${user.uid}`).valueChanges() : of(null);
